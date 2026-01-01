@@ -1,0 +1,35 @@
+#include<stdio.h>
+int sumof(int *mark,int num,char gender);
+int main(){
+    int num,sum;
+    char gender;
+    printf("enter the number of student\n");
+    scanf("%d",&num);
+    int mark[num];
+    printf("enter the marks\n");
+    for(int i = 0;i<num;i++){
+        scanf("%d",&mark[i]);
+    }
+    printf("enter your choice\n");
+    scanf(" %c",&gender);
+    sum = sumof(&mark,num,gender);
+    printf("%d",sum);
+    return 0;
+
+}
+int sumof(int *mark,int num,char gender){
+    
+    int sum1 = 0;
+    if(gender == 'g'){
+        for(int student=1; student < num; student=student+2) {
+            sum1=sum1+ *(mark +student);
+            
+        }
+    }
+    else if(gender =='b'){
+        for(int student=0; student < num; student=student+2) {
+            sum1=sum1+ *(mark +student);
+        }
+   }
+    return sum1;
+}
